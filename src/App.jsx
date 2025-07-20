@@ -1,14 +1,20 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Phone, 
-  MapPin, 
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button.jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.jsx";
+import { Badge } from "@/components/ui/badge.jsx";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
   ExternalLink,
   Moon,
   Sun,
@@ -20,134 +26,213 @@ import {
   User,
   Briefcase,
   FolderOpen,
-  Award
-} from 'lucide-react'
-import './App.css'
+  Award,
+  Code2,
+  Network,
+  Server,
+  LayoutDashboard,
+  Layers3,
+  CircuitBoard,
+  Cloud,
+} from "lucide-react";
+import "./App.css";
 
 function App() {
-  const [isDark, setIsDark] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
+  const [isDark, setIsDark] = useState(true);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
-  }, [isDark])
+  }, [isDark]);
 
   const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
+    setIsDark(!isDark);
+  };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setActiveSection(sectionId)
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionId);
     }
-  }
+  };
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  };
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
   const skills = [
-    { name: 'React.js', icon: <Code className="w-5 h-5" />, level: 95 },
-    { name: 'Redux', icon: <Code className="w-5 h-5" />, level: 90 },
-    { name: 'Node.js', icon: <Globe className="w-5 h-5" />, level: 85 },
-    { name: 'Express.js', icon: <Globe className="w-5 h-5" />, level: 85 },
-    { name: 'Flutter', icon: <Smartphone className="w-5 h-5" />, level: 88 },
-    { name: 'Oracle', icon: <Database className="w-5 h-5" />, level: 80 },
-    { name: 'PostgreSQL', icon: <Database className="w-5 h-5" />, level: 82 },
-    { name: 'MySQL', icon: <Database className="w-5 h-5" />, level: 80 }
-  ]
+    {
+      name: "React.js",
+      icon: <LayoutDashboard className="w-5 h-5" />,
+      level: 85,
+    },
+    {
+      name: "Redux",
+      icon: <Layers3 className="w-5 h-5" />,
+      level: 70,
+    },
+    {
+      name: "Node.js",
+      icon: <Server className="w-5 h-5" />,
+      level: 60,
+    },
+    {
+      name: "Express.js",
+      icon: <CircuitBoard className="w-5 h-5" />,
+      level: 60,
+    },
+    {
+      name: "Flutter",
+      icon: <Smartphone className="w-5 h-5" />,
+      level: 75,
+    },
+    {
+      name: "Oracle",
+      icon: <Database className="w-5 h-5" />,
+      level: 80,
+    },
+    {
+      name: "PostgreSQL",
+      icon: <Cloud className="w-5 h-5" />,
+      level: 80,
+    },
+    {
+      name: "MySQL",
+      icon: <Network className="w-5 h-5" />,
+      level: 80,
+    },
+  ];
 
   const experiences = [
     {
-      title: 'Front-End Developer',
-      company: 'Globe Company - Central Bank of Syria',
-      period: 'Sep 2024 - Dec 2024',
-      description: 'Developed a user-friendly web application using React.js to assist banks in working with the RTGS (Real-Time Gross Settlement) system. Designed a system enabling bank employees to input MX messages through the website.',
-      technologies: ['React.js', 'JavaScript', 'UI/UX Design']
+      title: "Front-End Developer",
+      company: "Globe Company - Central Bank of Syria",
+      period: "Sep 2024 - Dec 2024",
+      description:
+        "Developed a user-friendly web application using React.js to assist banks in working with the RTGS (Real-Time Gross Settlement) system. Designed a system enabling bank employees to input MX messages through the website.",
+      technologies: ["React.js", "JavaScript", "UI/UX Design"],
     },
     {
-      title: 'Front-End Developer and System Analyst',
-      company: 'Globe Company - Commercial Bank of Syria & DAMAN Company',
-      period: 'Feb 2024 - Aug 2024',
-      description: 'Developed a custom React.js library to simplify ERP system UI creation. Ensured reusability, scalability, and adherence to modern UI/UX standards. Enabled dynamic UI generation via JSON input.',
-      technologies: ['React.js', 'ERP Systems', 'UI/UX', 'System Analysis']
+      title: "Front-End Developer and System Analyst",
+      company: "Globe Company - Commercial Bank of Syria & DAMAN Company",
+      period: "Feb 2024 - Aug 2024",
+      description:
+        "Developed a custom React.js library to simplify ERP system UI creation. Ensured reusability, scalability, and adherence to modern UI/UX standards. Enabled dynamic UI generation via JSON input.",
+      technologies: ["React.js", "ERP Systems", "UI/UX", "System Analysis"],
     },
     {
-      title: 'Mobile and Web Application Developer',
-      company: 'Freelance Projects',
-      period: '2023 - Present',
-      description: 'Developed multiple applications including Eventopia (Event Management System), Aqar w Car (property and car application), SQL to React Generator, and Medicine Application.',
-      technologies: ['React.js', 'Flutter', 'Node.js', 'Database Design']
-    }
-  ]
+      title: "Mobile and Web Application Developer",
+      company: "Freelance Projects",
+      period: "2023 - Present",
+      description:
+        "Developed multiple applications including Eventopia (Event Management System), Aqar w Car (property and car application), SQL to React Generator, and Medicine Application.",
+      technologies: ["React.js", "Flutter", "Node.js", "Database Design"],
+    },
+  ];
 
   const projects = [
     {
-      title: 'Eventopia - Event Management System',
-      description: 'A comprehensive Flutter app for managing events with React.js admin dashboard. Features event oversight, registrations, contract management, and real-time notifications.',
-      technologies: ['Flutter', 'React.js', 'Real-time Updates', 'Admin Dashboard'],
-      type: 'Mobile & Web App'
+      title: "ERP library",
+      description:
+        "Developed a custom React.js library to simplify ERP system UI creation, Ensured reusability, scalability, and adherence to modern UI/UX standards ,Enabled dynamic UI generation (fields, buttons, labels, etc.) via JSON input.",
+      technologies: ["React.js", "bootstrap", "Real-time Updates", "JSON"],
+      type: "Web App",
     },
     {
-      title: 'Aqar w Car - Property & Car Platform',
-      description: 'Built a comprehensive React.js admin dashboard for managing real estate and car listings, user interactions, and business workflows with seamless communication features.',
-      technologies: ['React.js', 'Admin Dashboard', 'Real Estate', 'Business Workflows'],
-      type: 'Web Application'
+      title: "moualimi - Private teacher Management System",
+      description:
+        "Moualimi is a comprehensive platform designed to streamline the management of private tutoring services. It empowers teachers, students, and parents with tools to efficiently handle scheduling, payments, student progress tracking, and communication — all in one place.",
+      technologies: ["React.js", "Real-time Updates", "Admin Dashboard"],
+      type: "Web App",
     },
     {
-      title: 'SQL to React Generator',
-      description: 'A React generator that creates folder structures and pages with CRUD operations by uploading SQL files. Automatically generates inputs, selects, and tables.',
-      technologies: ['React.js', 'SQL', 'Code Generation', 'CRUD Operations'],
-      type: 'Development Tool'
+      title: "Eventopia - Event Management System",
+      description:
+        "A comprehensive Flutter app for managing events with React.js admin dashboard. Features event oversight, registrations, contract management, and real-time notifications.",
+      technologies: [
+        "Flutter",
+        "React.js",
+        "Real-time Updates",
+        "Admin Dashboard",
+      ],
+      type: "Mobile & Web App",
     },
     {
-      title: 'Medicine Application',
-      description: 'Flutter-based mobile app providing medicine-related features including dosage reminders, medicine descriptions, and prescription management with intuitive interface.',
-      technologies: ['Flutter', 'Mobile Development', 'Healthcare', 'UI/UX'],
-      type: 'Mobile App'
-    }
-  ]
+      title: "Aqar w Car - Property & Car Platform",
+      description:
+        "Built a comprehensive React.js admin dashboard for managing real estate and car listings, user interactions, and business workflows with seamless communication features.",
+      technologies: [
+        "React.js",
+        "Admin Dashboard",
+        "Real Estate",
+        "Business Workflows",
+      ],
+      type: "Web Application",
+    },
+    {
+      title: "SQL to React Generator",
+      description:
+        "A React generator that creates folder structures and pages with CRUD operations by uploading SQL files. Automatically generates inputs, selects, and tables.",
+      technologies: ["React.js", "SQL", "Code Generation", "CRUD Operations"],
+      type: "Development Tool",
+    },
+    {
+      title: "Medicine Application",
+      description:
+        "Flutter-based mobile app providing medicine-related features including dosage reminders, medicine descriptions, and prescription management with intuitive interface.",
+      technologies: ["Flutter", "Mobile Development", "Healthcare", "UI/UX"],
+      type: "Mobile App",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div 
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            <motion.div
+              className="text-2xl font-bold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
             >
-              MA
+              Mohamad Arnaout
             </motion.div>
-            
+
             <div className="hidden md:flex items-center space-x-8">
-              {['hero', 'about', 'experience', 'projects', 'skills', 'contact'].map((section) => (
+              {[
+                "hero",
+                "about",
+                "experience",
+                "projects",
+                "skills",
+                "contact",
+              ].map((section) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`capitalize transition-colors hover:text-primary ${
-                    activeSection === section ? 'text-primary' : 'text-muted-foreground'
+                    activeSection === section
+                      ? "text-primary"
+                      : "text-muted-foreground"
                   }`}
                   whileHover={{ y: -2 }}
                   whileTap={{ y: 0 }}
@@ -192,51 +277,45 @@ function App() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center pt-20">
+      <section
+        id="hero"
+        className="min-h-screen flex items-center justify-center pt-20"
+      >
         <div className="container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-4xl font-bold text-primary-foreground">
-              MA
-            </div>
-          </motion.div>
-
-          <motion.h1 
+          <motion.h1
             {...fadeInUp}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-primary bg-clip-text text-transparent"
           >
             Mohamad Arnaout
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             {...fadeInUp}
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8"
           >
-            Frontend Developer & System Analyst
+            Frontend Developer
           </motion.p>
-          
-          <motion.p 
+
+          <motion.p
             {...fadeInUp}
             transition={{ delay: 0.4 }}
             className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Dynamic Frontend Developer with expertise in React.js, Flutter, and modern web technologies. 
-            Passionate about creating scalable solutions and bridging the gap between technical requirements and user needs.
+            Dynamic Frontend Developer with expertise in React.js, Flutter, and
+            modern web technologies. Passionate about creating scalable
+            solutions and bridging the gap between technical requirements and
+            user needs.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             {...fadeInUp}
             transition={{ delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <Button 
-              size="lg" 
-              onClick={() => scrollToSection('projects')}
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("projects")}
               className="group"
             >
               View My Work
@@ -248,10 +327,10 @@ function App() {
                 <ExternalLink className="w-4 h-4" />
               </motion.div>
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
             >
               Get In Touch
             </Button>
@@ -261,7 +340,7 @@ function App() {
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="cursor-pointer"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection("about")}
           >
             <ChevronDown className="w-8 h-8 mx-auto text-muted-foreground" />
           </motion.div>
@@ -283,25 +362,27 @@ function App() {
                 About Me
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Learn more about my background, education, and what drives my passion for development
+                Learn more about my background, education, and what drives my
+                passion for development
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                {...fadeInUp}
-                className="space-y-6"
-              >
+              <motion.div {...fadeInUp} className="space-y-6">
                 <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm a dynamic Frontend Developer with a strong background in designing, analyzing, and optimizing 
-                  database systems. Currently in my fourth year studying Information Technology Engineering at Damascus University, 
-                  specializing in Software Engineering.
+                  I'm a dynamic Frontend Developer with a strong background in
+                  designing, analyzing, and optimizing database systems.
+                  Currently in my fourth year studying Information Technology
+                  Engineering at Damascus University, specializing in Software
+                  Engineering.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  My expertise spans modern frontend technologies, UI/UX principles, and database architecture. 
-                  I'm passionate about innovation and leveraging technology to drive organizational success, 
-                  always striving to bridge the gap between technical requirements and user needs.
+                  My expertise spans modern frontend technologies, UI/UX
+                  principles, and database architecture. I'm passionate about
+                  innovation and leveraging technology to drive organizational
+                  success, always striving to bridge the gap between technical
+                  requirements and user needs.
                 </p>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
@@ -321,20 +402,28 @@ function App() {
                 className="grid grid-cols-2 gap-4"
               >
                 <Card className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">2+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                  <div className="text-3xl font-bold text-primary mb-2">2</div>
+                  <div className="text-sm text-muted-foreground">
+                    Years Experience
+                  </div>
                 </Card>
                 <Card className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">10+</div>
-                  <div className="text-sm text-muted-foreground">Projects Completed</div>
+                  <div className="text-3xl font-bold text-primary mb-2">6+</div>
+                  <div className="text-sm text-muted-foreground">
+                    Projects Completed
+                  </div>
                 </Card>
                 <Card className="p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">5+</div>
-                  <div className="text-sm text-muted-foreground">Technologies</div>
+                  <div className="text-sm text-muted-foreground">
+                    Technologies
+                  </div>
                 </Card>
                 <Card className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">3</div>
-                  <div className="text-sm text-muted-foreground">Major Companies</div>
+                  <div className="text-3xl font-bold text-primary mb-2">1</div>
+                  <div className="text-sm text-muted-foreground">
+                    Major Companies
+                  </div>
                 </Card>
               </motion.div>
             </div>
@@ -357,30 +446,39 @@ function App() {
                 Experience
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                My professional journey and the impact I've made in various organizations
+                My professional journey and the impact I've made in various
+                organizations
               </p>
             </div>
 
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-10"
             >
               {experiences.map((exp, index) => (
                 <motion.div
-                  key={index}
+                  key={`${exp.title}-${index}`}
                   variants={fadeInUp}
                   className="relative"
+                  aria-label={`Experience at ${exp.company}`}
                 >
-                  <Card className="p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <Card className="p-6 hover:shadow-xl transition-shadow duration-300 rounded-2xl">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
-                        <p className="text-primary font-medium">{exp.company}</p>
+                        <h3 className="text-2xl font-semibold text-foreground mb-1 text-center">
+                          {exp.title}
+                        </h3>
+                        <p className="text-primary/70 font-medium text-center">
+                          {exp.company}
+                        </p>
                       </div>
-                      <Badge variant="secondary" className="w-fit mt-2 md:mt-0">
+                      <Badge
+                        variant="secondary"
+                        className="w-fit text-sm px-3 py-1 rounded-md"
+                      >
                         {exp.period}
                       </Badge>
                     </div>
@@ -389,7 +487,11 @@ function App() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline">
+                        <Badge
+                          key={`${tech}-${techIndex}`}
+                          variant="outline"
+                          className="text-xs px-2 py-1"
+                        >
                           {tech}
                         </Badge>
                       ))}
@@ -421,7 +523,7 @@ function App() {
               </p>
             </div>
 
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -441,7 +543,9 @@ function App() {
                         <Badge variant="secondary">{project.type}</Badge>
                         <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                       </div>
-                      <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
+                      <CardTitle className="text-xl mb-2">
+                        {project.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent className="p-0">
                       <CardDescription className="text-base mb-4 leading-relaxed">
@@ -449,7 +553,11 @@ function App() {
                       </CardDescription>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="outline" className="text-xs">
+                          <Badge
+                            key={techIndex}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -482,7 +590,7 @@ function App() {
               </p>
             </div>
 
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -510,7 +618,9 @@ function App() {
                         transition={{ duration: 1, delay: index * 0.1 }}
                       />
                     </div>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <span className="text-sm text-muted-foreground">
+                      {skill.level}%
+                    </span>
                   </Card>
                 </motion.div>
               ))}
@@ -538,70 +648,84 @@ function App() {
               </p>
             </div>
 
-            <motion.div 
-              {...fadeInUp}
-              className="max-w-2xl mx-auto"
-            >
+            <motion.div {...fadeInUp} className="max-w-2xl mx-auto">
               <Card className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-6">
-                    <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                    
-                    <motion.div 
+                    <h3 className="text-xl font-semibold mb-4">
+                      Contact Information
+                    </h3>
+
+                    <motion.div
                       className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <Mail className="w-5 h-5 text-primary" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="text-sm text-muted-foreground">mohamadarnaout416@gmail.com</p>
+                        <p className="text-sm text-muted-foreground">
+                          mohamadarnaout416@gmail.com
+                        </p>
                       </div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <Phone className="w-5 h-5 text-primary" />
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">+963 968478016</p>
+                        <p className="text-sm text-muted-foreground">
+                          +963 968478016
+                        </p>
                       </div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <MapPin className="w-5 h-5 text-primary" />
                       <div>
                         <p className="font-medium">Location</p>
-                        <p className="text-sm text-muted-foreground">Damascus, Syria</p>
+                        <p className="text-sm text-muted-foreground">
+                          Damascus, Syria
+                        </p>
                       </div>
                     </motion.div>
                   </div>
 
                   <div className="space-y-6">
-                    <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
+                    <h3 className="text-xl font-semibold mb-4">
+                      Let's Connect
+                    </h3>
                     <p className="text-muted-foreground mb-6">
-                      I'm always interested in new opportunities and exciting projects. 
-                      Feel free to reach out if you'd like to work together!
+                      I'm always interested in new opportunities and exciting
+                      projects. Feel free to reach out if you'd like to work
+                      together!
                     </p>
-                    
-                    <div className="flex gap-4">
+
+                    <a
+                      href="mailto:mohamadarnaout416@gmail.com"
+                      className="flex gap-4"
+                    >
                       <Button size="lg" className="flex-1">
                         <Mail className="w-4 h-4 mr-2" />
                         Send Email
                       </Button>
-                    </div>
+                    </a>
 
                     <div className="flex gap-4 pt-4">
-                      <Button variant="outline" size="icon">
-                        <Github className="w-5 h-5" />
-                      </Button>
-                      <Button variant="outline" size="icon">
-                        <Linkedin className="w-5 h-5" />
-                      </Button>
+                      <a
+                        href="https://github.com/MohamadAr4"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button variant="outline" size="icon">
+                          <Github className="w-5 h-5" />
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -614,19 +738,18 @@ function App() {
       {/* Footer */}
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-6 text-center">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-muted-foreground"
           >
-            © 2024 Mohamad Arnaout. Built with React.js, Tailwind CSS v4, and Framer Motion.
+            © 2025 Mohamad Arnaout.
           </motion.p>
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;
